@@ -1,4 +1,3 @@
-# Configure Jest test framework in Node.js application uses Express in TypeScript
 
 ## Install dependencies
 ```
