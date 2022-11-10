@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "bffe9125-89dd-4f5c-a146-89d5772c28eb",
+		"name": "Task 1(Assignment 1)",
+		"description": "``` plaintext\nStudent Model\n{\n    registerationNumber: {\n        type: Number,\n        unique: true,\n        required: [\n            true,\n            'registerationNumber is required'\n        ]\n    },\n    name: {\n        type: {\n            firstName: {\n                type: String,\n                required: [\n                    true,\n                    'name.firstName is required'\n                ]\n            },\n            middleName: {\n                type: String,\n                default: ''\n            },\n            lastName: {\n                type: String,\n                required: [\n                    true,\n                    'name.lastName is required'\n                ]\n            }\n        }\n    },\n    email: {\n        type: String,\n        validate: {\n            validator: (value: string) => {\n                return validator.isEmail(value)\n            },\n            message: 'Enter a valid email'\n        }\n    },\n    phoneNumber: {\n        type: String,\n        required: [true, 'phoneNumber is required'],\n        validate: {\n            validator: (value: string) => {\n                return /92\\d{10}/.test(value)\n            },\n            message: 'Enter phoneNumber in format 92XXXXXXXXXX'\n        }\n    },\n    gender: {\n        type: String,\n        required: [true, 'gender is required'],\n        enum: {\n            values: ['Male', 'Female', 'Other'],\n            message: '[Male, Female, Other] are only supported values'\n        }\n    },\n    isDeleted: {\n        type: Boolean,\n        default: false\n    },\n    modificationNotes: [{\n        modifiedOn: Date,\n        modificationNote: String\n    }]\n}\n\n```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24128364"
+	},
+	"item": [
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"registerationNumber\": 10,\n\t\"name\": {\n\t\t\"firstName\": \"Saba\",\n\t\t\"middleName\": \"\",\n\t\t\"lastName\": \"Kanwal\"\n\t},\n\t\"phoneNumber\": \"923470856947\",\n    \"email\": \"sabakanwal45@gmail.com\",\n\t\"gender\": \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://university-management-system-4.herokuapp.com/una/student",
+					"protocol": "https",
+					"host": [
+						"university-management-system-4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"una",
+						"student"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"registerationNumber\": 10,\n\t\"name\": {\n\t\t\"firstName\": \"Saba\",\n\t\t\"middleName\": \"\",\n\t\t\"lastName\": \"Kanwal\"\n\t},\n\t\"phoneNumber\": \"923470856947\",\n    \"email\": \"sabakanwal45@gmail.com\",\n\t\"gender\": \"Male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/student",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"student"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "467"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1d3-/2W6CaDTkAppJ+Axp6R53YYH4dA\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 06:53:02 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Success\",\n    \"message\": \"student created successfully\",\n    \"data\": {\n        \"registerationNumber\": 10,\n        \"name\": {\n            \"firstName\": \"Saba\",\n            \"middleName\": \"\",\n            \"lastName\": \"Kanwal\",\n            \"_id\": \"620607cec163c802abcad153\"\n        },\n        \"email\": \"sabakanwal45@gmail.com\",\n        \"phoneNumber\": \"923470856947\",\n        \"gender\": \"Male\",\n        \"isDeleted\": false,\n        \"modificationNotes\": [\n            {\n                \"modifiedOn\": \"2022-02-11T06:53:02.848Z\",\n                \"modificationNote\": \"new student created\",\n                \"_id\": \"620607cec163c802abcad154\"\n            }\n        ],\n        \"_id\": \"620607cec163c802abcad152\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "Create Student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"registerationNumber\": 10,\n\t\"name\": {\n\t\t\"firstName\": \"Saba\",\n\t\t\"middleName\": \"\",\n\t\t\"lastName\": \"Kanwal\"\n\t},\n\t\"phoneNumber\": \"923470856947\",\n    \"email\": \"sabakanwal45@gmail.com\",\n\t\"gender\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/student",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"student"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8d-kMo89wZkjphGBwgOqVt8qBdvTOU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 06:56:27 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Failure\",\n    \"message\": \"students validation failed\",\n    \"errors\": {\n        \"gender\": \"[Male, Female, Other] are only supported values\"\n    },\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Student by StudentID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": {\n\t\t\"lastName\": \"Rasool\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/una/students/61f6295c4b26d4884eb18aa7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"una",
+						"students",
+						"61f6295c4b26d4884eb18aa7"
+					]
+				},
+				"description": "Request Payload Details\n\n``` json\n{\n\tregisterationNumber: Optional,\n\tname: {\n\t\ttype: {\n\t\t\tfirstName: Optional,\n\t\t\tmiddleName: Optional,\n\t\t\tlastName: Optional\n\t\t}\n\t},\n\temail: Optional,\n\tphoneNumber: Optional,\n\tgender: Optional\n}\n\n```"
+			},
+			"response": [
+				{
+					"name": "Update Student by StudentID",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": {\n\t\t\"lastName\": \"Rasool\"\n\t},\n    \"email\": \"sabe+test52@shopistan.pk\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/students/620607cec163c802abcad152",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"students",
+								"620607cec163c802abcad152"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "586"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"24a-W3BFA5TZ7Pa4+8t0A2mwOfGzjiw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 06:58:39 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Success\",\n    \"message\": \"student updated successfully\",\n    \"data\": {\n        \"_id\": \"620607cec163c802abcad152\",\n        \"registerationNumber\": 10,\n        \"name\": {\n            \"firstName\": \"Saba\",\n            \"middleName\": \"\",\n            \"lastName\": \"Rasool\",\n            \"_id\": \"6206091fc163c802abcad15d\"\n        },\n        \"email\": \"sabe+test52@shopistan.pk\",\n        \"phoneNumber\": \"923470856947\",\n        \"gender\": \"Male\",\n        \"isDeleted\": false,\n        \"modificationNotes\": [\n            {\n                \"modifiedOn\": \"2022-02-11T06:53:02.848Z\",\n                \"modificationNote\": \"new student created\",\n                \"_id\": \"620607cec163c802abcad154\"\n            },\n            {\n                \"modifiedOn\": \"2022-02-11T06:58:39.457Z\",\n                \"modificationNote\": \"student data updated\",\n                \"_id\": \"6206091fc163c802abcad15c\"\n            }\n        ],\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "Update Student by StudentID",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": {\n\t\t\"lastName\": \"Rasool\"\n\t},\n    \"email\": \"sabe+test52@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/students/620607cec163c802abcad152",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"students",
+								"620607cec163c802abcad152"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"67-MwVnj+iI2puWpd8jv/0z667mSk0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 06:59:14 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Failure\",\n    \"message\": \"Validation failed\",\n    \"errors\": {\n        \"email\": \"Enter a valid email\"\n    },\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Student by StudentID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://university-management-system-4.herokuapp.com/una/students/61f6295c4b26d4884eb18aa7",
+					"protocol": "https",
+					"host": [
+						"university-management-system-4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"una",
+						"students",
+						"61f6295c4b26d4884eb18aa7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Student by StudentID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/students/61f6295c4b26d4884eb18aa7",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"students",
+								"61f6295c4b26d4884eb18aa7"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3c-/b9JMFSpWloQojbCTfVxgkwhovk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 07:05:56 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Failure\",\n    \"message\": \"invalid student\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://university-management-system-4.herokuapp.com/una/students/",
+					"protocol": "https",
+					"host": [
+						"university-management-system-4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"una",
+						"students",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/students/",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"students",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1237"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"4d5-e92rtw1Z40HyZ/f9DJOx6dXKqos\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 06:59:49 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Success\",\n    \"message\": \"students fetched successfully\",\n    \"data\": [\n        {\n            \"_id\": \"61f63a53a0df48e0c89ae807\",\n            \"registerationNumber\": 1,\n            \"name\": {\n                \"firstName\": \"Saba\",\n                \"middleName\": \"\",\n                \"lastName\": \"Kanwal\",\n                \"_id\": \"61f63a53a0df48e0c89ae808\"\n            },\n            \"phoneNumber\": \"923470856947\",\n            \"gender\": \"Male\",\n            \"isDeleted\": false,\n            \"modificationNotes\": [\n                {\n                    \"modifiedOn\": \"2022-01-30T07:12:19.695Z\",\n                    \"modificationNote\": \"New user created\",\n                    \"_id\": \"61f63a53a0df48e0c89ae809\"\n                }\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6205141dc38de3e876fe4e3f\",\n            \"registerationNumber\": 10,\n            \"name\": {\n                \"firstName\": \"Saba\",\n                \"middleName\": \"\",\n                \"lastName\": \"Rasool\",\n                \"_id\": \"62051abc149ad226debf4f97\"\n            },\n            \"phoneNumber\": \"923470856947\",\n            \"gender\": \"Male\",\n            \"isDeleted\": false,\n            \"modificationNotes\": [],\n            \"__v\": 0,\n            \"email\": \"sabe+test52@shopistan.pk\"\n        },\n        {\n            \"_id\": \"620607cec163c802abcad152\",\n            \"registerationNumber\": 10,\n            \"name\": {\n                \"firstName\": \"Saba\",\n                \"middleName\": \"\",\n                \"lastName\": \"Rasool\",\n                \"_id\": \"6206091fc163c802abcad15d\"\n            },\n            \"email\": \"sabe+test52@shopistan.pk\",\n            \"phoneNumber\": \"923470856947\",\n            \"gender\": \"Male\",\n            \"isDeleted\": false,\n            \"modificationNotes\": [\n                {\n                    \"modifiedOn\": \"2022-02-11T06:53:02.848Z\",\n                    \"modificationNote\": \"new student created\",\n                    \"_id\": \"620607cec163c802abcad154\"\n                },\n                {\n                    \"modifiedOn\": \"2022-02-11T06:58:39.457Z\",\n                    \"modificationNote\": \"student data updated\",\n                    \"_id\": \"6206091fc163c802abcad15c\"\n                }\n            ],\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Student by StudentID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://university-management-system-4.herokuapp.com/una/students/6205141dc38de3e876fe4e3f",
+					"protocol": "https",
+					"host": [
+						"university-management-system-4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"una",
+						"students",
+						"6205141dc38de3e876fe4e3f"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Student by StudentID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/students/6205141dc38de3e876fe4e3f",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"students",
+								"6205141dc38de3e876fe4e3f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"162-2ZAZodH8BB9qW1+OLNO2j402wUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 07:00:19 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Success\",\n    \"message\": \"student fetched successfully\",\n    \"data\": {\n        \"_id\": \"6205141dc38de3e876fe4e3f\",\n        \"registerationNumber\": 10,\n        \"name\": {\n            \"firstName\": \"Saba\",\n            \"middleName\": \"\",\n            \"lastName\": \"Rasool\",\n            \"_id\": \"62051abc149ad226debf4f97\"\n        },\n        \"phoneNumber\": \"923470856947\",\n        \"gender\": \"Male\",\n        \"isDeleted\": false,\n        \"modificationNotes\": [],\n        \"__v\": 0,\n        \"email\": \"sabe+test52@shopistan.pk\"\n    }\n}"
+				},
+				{
+					"name": "Get Student by StudentID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://university-management-system-4.herokuapp.com/una/students/6205141dc38de3e876fe4e3f",
+							"protocol": "https",
+							"host": [
+								"university-management-system-4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"una",
+								"students",
+								"6205141dc38de3e876fe4e3f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"162-2ZAZodH8BB9qW1+OLNO2j402wUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 07:07:52 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Success\",\n    \"message\": \"student fetched successfully\",\n    \"data\": {\n        \"_id\": \"6205141dc38de3e876fe4e3f\",\n        \"registerationNumber\": 10,\n        \"name\": {\n            \"firstName\": \"Saba\",\n            \"middleName\": \"\",\n            \"lastName\": \"Rasool\",\n            \"_id\": \"62051abc149ad226debf4f97\"\n        },\n        \"phoneNumber\": \"923470856947\",\n        \"gender\": \"Male\",\n        \"isDeleted\": false,\n        \"modificationNotes\": [],\n        \"__v\": 0,\n        \"email\": \"sabe+test52@shopistan.pk\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
